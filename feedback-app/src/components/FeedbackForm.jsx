@@ -17,7 +17,6 @@ function FeedbackForm({handleAdd})
     }
     else if(text !== '' && text.trim().length <= 8)
     {
-      console.log(text.length)
       setMessage('Text must be at least 10 characters')
       setBtnDisabled(true)
     }
