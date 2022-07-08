@@ -5,14 +5,12 @@ import { useContext } from 'react'
 
 function FeedbackList() 
 { 
-  const { feedback } = useContext(FeedbackContext)
+  const { feedback, isLoading } = useContext(FeedbackContext)
 
-  if(!feedback || feedback.length === 0)
+  if(!isLoading && (!feedback || feedback.length === 0))
     return <p>No feedback yet!</p>
 
-
-
-    return (
+    return isLoading ? (<h3>Loading...</h3>) : ((
       <div className="feedback-list">
         <AnimatePresence>
           {feedback.map((item) => (
@@ -30,7 +28,9 @@ function FeedbackList()
           ))}
         </AnimatePresence>
       </div>
-      )
+      ))
+
+    
 
   // return (
   // <div className="feedback-list">
